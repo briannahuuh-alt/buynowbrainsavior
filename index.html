@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Match Master</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Arial',sans-serif;
+}
+
+body{
+  background-color:#1a0f12;
+  color:#f4eaea;
+  line-height:1.6;
+}
+
+/* ===== BLUR EFFECT ===== */
+#pageContent{
+  transition:filter 0.3s ease;
+}
+.blur{
+  filter: blur(6px);
+}
+
+/* ===== HEADER ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background-color:#2a1318;
+}
+header h1{
+  font-size:24px;
+  color:#ff6b6b;   /* light red */
+}
+nav a{
+  margin-left:20px;
+  color:#f4eaea;
+  text-decoration:none;
+}
+nav a:hover{ color:#ff6b6b; }
+
+/* ===== HERO ===== */
+.hero{
+  padding:60px 50px;
+}
+.hero h2{
+  font-size:36px;
+  margin-bottom:20px;
+}
+.hero p{
+  margin-bottom:20px;
+  max-width:700px;
+}
+.hero button{
+  padding:12px 25px;
+  margin-right:15px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:#ff6b6b;
+  color:#2a1318;
+  font-weight:bold;
+}
+.hero button:hover{
+  background:#e05555;
+}
+
+/* ===== SECTIONS ===== */
+.features,.highlights,.contact{
+  padding:50px;
+  display:grid;
+  grid-gap:20px;
+}
+.features,.highlights{
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.card{
+  background:#2a1318;
+  padding:20px;
+  border-radius:12px;
+}
+
+/* ===== CONTACT ===== */
+.contact form{
+  display:flex;
+  flex-direction:column;
+  max-width:400px;
+  margin:auto;
+}
+.contact input,.contact textarea{
+  padding:10px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:none;
+}
+.contact button{
+  width:160px;
+  align-self:center;
+  background:#ff6b6b;
+  color:#2a1318;
+}
+
+/* ===== POPUP ===== */
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter: blur(3px);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.popup .content{
+  background:#2a1318;
+  padding:30px;
+  border-radius:16px;
+  text-align:center;
+  max-width:420px;
+  box-shadow:0 0 35px rgba(255,107,107,0.45);
+}
+
+.popup h3{
+  color:#ff6b6b;
+  margin-bottom:10px;
+}
+
+.popup button{
+  padding:10px 22px;
+  border:none;
+  border-radius:8px;
+  margin:10px;
+  cursor:pointer;
+  background:#ff6b6b;
+  color:#2a1318;
+  font-weight:bold;
+}
+.popup button:hover{
+  background:#e05555;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  header{ flex-direction:column; }
+  .hero{ text-align:center; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="pageContent">
+
+<header>
+  <h1>Memory Match Master</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Play Game</a>
+    <a href="#">Leaderboard</a>
+    <a href="#">About</a>
+    <a href="#">Blog</a>
+    <a href="#">FAQ</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>The Ultimate Browser-Based Memory Game</h2>
+  <p>
+    Welcome to Memory Match Master, a beautifully designed matching game to test
+    your memory and sharpen your focus. Instant access, zero downloads.
+  </p>
+  <button>Play for Free</button>
+  <button>Tips & Strategies</button>
+</section>
+
+<section class="features">
+  <div class="card"><h3>Multiple Difficulty Levels</h3><p>Challenge yourself with grids of all sizes.</p></div>
+  <div class="card"><h3>Global Competition</h3><p>Compete on our leaderboard.</p></div>
+  <div class="card"><h3>Play Anywhere</h3><p>Works on all devices.</p></div>
+  <div class="card"><h3>Beautiful Design</h3><p>Clean & smooth UI.</p></div>
+</section>
+
+<section class="highlights">
+  <div class="card"><h3>Instant Access</h3><p>No downloads.</p></div>
+  <div class="card"><h3>Cognitive Benefits</h3><p>Boost focus & memory.</p></div>
+  <div class="card"><h3>Clean UI</h3><p>Minimal distractions.</p></div>
+  <div class="card"><h3>Climb the Clock</h3><p>Track your progress.</p></div>
+</section>
+
+<section class="contact">
+  <h2>Get in Touch</h2>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Share your thoughts"></textarea>
+    <button type="submit">Send Accept</button>
+  </form>
+</section>
+
+</div>
+
+<div class="popup" id="policyPopup">
+  <div class="content">
+    <h3>Policy Notice</h3>
+    <p>Are you accepting our policy to play the game?</p>
+    <button onclick="redirectBetOnline()">Yes, Accept</button>
+    <button onclick="redirectBetOnline()">No</button>
+  </div>
+</div>
+
+<script>
+const popup=document.getElementById("policyPopup");
+const page=document.getElementById("pageContent");
+
+function redirectBetOnline(){
+  window.location.href="https://record.betonlineaffiliates.ag/_nXV6hICreGfYJMJFEJBL7mNd7ZgqdRLk/1/";
+}
+
+window.onload=()=>{
+  popup.style.display="flex";
+  page.classList.add("blur");
+};
+</script>
+
+</body>
+</html>
